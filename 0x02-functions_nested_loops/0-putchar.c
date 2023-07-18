@@ -1,7 +1,4 @@
-/*Prototype*/
-int print(char *str);
-int _putchar(char c);
-
+#include "main.h"
 /**
  * main - Entry main
  *
