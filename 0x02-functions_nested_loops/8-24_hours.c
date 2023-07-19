@@ -12,7 +12,7 @@ void jack_bauer(void)
 	int x = 0;
 	int y = 0;
 
-	while (i <= 2)
+	while (i <= 2 || j <= 3)
 	{
 		_putchar('0' + i);
 		_putchar('0' + j);
@@ -20,6 +20,10 @@ void jack_bauer(void)
 		_putchar('0' + x);
 		_putchar('0' + y);
 		_putchar('\n');
+		if (i == 2 && j == 3 && x == 5 && y == 9)
+		{
+			break;
+		}
 		y++;
 
 		if (y == 10)
