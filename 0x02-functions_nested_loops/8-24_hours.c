@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * jack_bauer - Count all possible times in the day
+ *
+ * Return: Nothing
+ */
 void jack_bauer(void)
 {
 	int i = 0;
@@ -7,7 +12,7 @@ void jack_bauer(void)
 	int x = 0;
 	int y = 0;
 
-	while (i <= 2 && j <= 9 && x <= 5 && y <= 9)
+	while (i <= 2)
 	{
 		_putchar('0' + i);
 		_putchar('0' + j);
@@ -22,6 +27,11 @@ void jack_bauer(void)
 			x++;
 			y = 0;
 		}
+		if (x == 6)
+		{
+			j++;
+			x = 0;
+		}
 
 		if (j == 10)
 		{
@@ -29,11 +39,6 @@ void jack_bauer(void)
 			j = 0;
 		}
 
-		if (x == 6)
-		{
-			j++;
-			x = 0;
-		}
+
 	}
-	_putchar('0' + i);
 }
