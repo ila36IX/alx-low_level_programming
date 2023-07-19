@@ -16,8 +16,11 @@ void times_table(void)
 		_putchar('0');
 		for (j = 1; j <= 9; j++)
 		{
-			if (i * j >= 10)
+			if (i * j > 100)
 			{
+			}
+			if (i * j > 10)
+i			{
 				int a;
 				int b;
 
