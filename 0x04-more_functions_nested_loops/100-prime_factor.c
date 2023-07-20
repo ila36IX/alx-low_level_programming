@@ -8,16 +8,23 @@
  */
 int main(void)
 {
-	long int number, i;
-
+	long int number, i, t;
+	t = 1;
 	number = 612852475143;
-	for (i = sqrt(number); i > 2; i--)
+	for (i = 2; i * i < number; i++)
 	{
 		if (number % i == 0)
 		{
-			printf("%ld\n", i);
-			return (0);
+			if (number / i > i)
+			{
+				t = number / i;
+			}
+			else 
+			{
+				t = i;
+			}
 		}
 	}
+	printf("%ld\n", t);
 	return (0);
 }
