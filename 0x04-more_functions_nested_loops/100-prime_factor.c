@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <math.h>
 
-int main()
+/**
+ * main - The entry function
+ *
+ * Return: Number 0
+ */
+int main(void)
 {
 	long int number, i;
 
