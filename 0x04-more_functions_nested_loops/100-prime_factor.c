@@ -1,47 +1,18 @@
 #include <stdio.h>
-
-long int next_prime(long int n);
+#include <math.h>
 
 int main()
 {
-	long int number = 612852475143;
-	long int prime = 2;
+	long int number, i;
 
-	while (1 == 1)
+	number = 612852475143;
+	for (i = sqrt(number); i > 2; i--)
 	{
-		if (number % prime == 0)
+		if (number % i == 0)
 		{
-			number = number / prime;
-			if (number == 1)
-			{
-				printf("%ld\n", prime);
-				return (0);
-			}
-		}
-		else
-		{
-			prime = next_prime(prime);
+			printf("%ld\n", i);
+			return (0);
 		}
 	}
-}
-
-long int next_prime(long int n)
-{
-	while (1)
-	{
-		long int i;
-
-		n++;
-		for (i = 2; i < n; i++)
-		{
-			if (n % i == 0)
-			{
-				break;
-			}		
-			if (i == n - 1)
-			{
-				return (n);
-			}
-		}
-	}
+	return (0);
 }
