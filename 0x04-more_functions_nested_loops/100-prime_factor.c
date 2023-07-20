@@ -2,7 +2,7 @@
 
 long int next_prime(long int n);
 
-long int main()
+int main()
 {
 	long int number = 612852475143;
 	long int prime = 2;
@@ -29,10 +29,9 @@ long int next_prime(long int n)
 {
 	while (1)
 	{
-		n++;
-		long int i, j, tester;
-		tester = 1;
+		long int i;
 
+		n++;
 		for (i = 2; i < n; i++)
 		{
 			if (n % i == 0)
