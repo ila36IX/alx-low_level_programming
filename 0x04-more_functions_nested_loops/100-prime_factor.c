@@ -9,6 +9,7 @@
 int main(void)
 {
 	long int number, i, t;
+
 	t = 1;
 	number = 612852475143;
 	for (i = 2; i * i < number; i++)
@@ -19,7 +20,7 @@ int main(void)
 			{
 				t = number / i;
 			}
-			else 
+			else
 			{
 				t = i;
 			}
