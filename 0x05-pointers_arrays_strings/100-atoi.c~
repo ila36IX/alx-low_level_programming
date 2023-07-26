@@ -1,0 +1,59 @@
+#include "main.h"
+
+int power(int base, int exp);
+
+/**
+ * _atoi - Convert string to integer
+ *
+ * @s: string
+ *
+ * Return: integer
+ */
+
+int _atoi(char *s)
+{
+	int i = 0;
+	int j = 0;
+	int sign = 1;
+
+	if (*s == '-')
+	{
+		sign = -1;
+	}
+	else if (*s == '+')
+	{
+		sign = 1;
+	}
+
+	while (*(s + i) == '\0')
+	{
+		if (((int) *(s + i)) < 48 && ((int) *(s + i)) > 57)
+		{
+			i +=  (((int) *(s + i)) - 48) * power(10, i);
+		}
+	}
+
+	return (i * sign);
+}
+
+/**
+ * power - calculate the power
+ *
+ * @base: the base of the power
+ *
+ * @exp: exponent
+ *
+ * Return: resulet as integer
+ */
+
+int power(int base,int exp)
+{
+	int i;
+	int res = base;
+
+	for(i = 0; i < exp - 1; i++)
+	{
+		res = res * res;
+	}
+	return (res);
+}
