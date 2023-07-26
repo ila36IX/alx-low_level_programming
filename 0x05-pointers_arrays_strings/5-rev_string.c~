@@ -1,17 +1,10 @@
 #include "main.h"
 
-/**
- * rev_string - Reverese a string
- *
- * @s: The string
- *
- * Return: nothing
- */
 void rev_string(char *s)
 {
 	int i = 0;
 	int j;
-	char str[30];
+	char str[10];
 
 	if (*s)
 	{

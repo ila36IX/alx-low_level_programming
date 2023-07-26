@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-    char s[9] = "Ali jbari";
+    char s[2] = "Mf";
 
     printf("%s\n", s);
     rev_string(s);
