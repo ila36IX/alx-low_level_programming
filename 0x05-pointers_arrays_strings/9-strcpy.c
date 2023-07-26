@@ -13,9 +13,10 @@
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
+
 	if (!*src)
 	{
-		return dest;
+		return (dest);
 	}
 	while (*(src + i) != '\0')
 	{
@@ -23,5 +24,5 @@ char *_strcpy(char *dest, char *src)
 		i++;
 	}
 	*(dest + i) = '\0';
-	return dest;
+	return (dest);
 }
