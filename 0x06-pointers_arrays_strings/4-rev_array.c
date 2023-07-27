@@ -10,15 +10,18 @@
 
 void reverse_array(int *a, int n)
 {
-	int arr[200];
-	int i;
-
-	for (i = 0; i < n; i++)
+	if (n > 0)
 	{
-		arr[i] = a[i];
-	}
-	for (i = 0; i < n; i++)
-	{
-		a[i] = arr[n - i];
+		int arr[200];
+		int i;
+	
+		for (i = 0; i < n; i++)
+		{
+			arr[i] = a[i];
+		}
+		for (i = 0; i < n; i++)
+		{
+			a[i] = arr[n - i];
+		}
 	}
 }
