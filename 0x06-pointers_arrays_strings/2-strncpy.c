@@ -5,10 +5,9 @@
  * @dest: The string that will part of it will be replaced
  * @src: Will be in starting of dest
  * @n: The length of src that will be replaced
- * 
+ *
  * Return: Nothing
  */
-
 char *_strncpy(char *dest, char *src, int n)
 {
 	int i;
