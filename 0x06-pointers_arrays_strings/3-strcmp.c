@@ -13,9 +13,8 @@
 int _strcmp(char *s1, char *s2)
 {
 	int i = 0;
-	
-	do
-	{
+
+	do {
 		if ((int) *(s1 + i) != (int) *(s2 + i))
 		{
 			return ((int) *(s1 + i) - (int) *(s2 + i));
@@ -24,8 +23,7 @@ int _strcmp(char *s1, char *s2)
 		{
 			i++;
 		}
-	}
-	while (*(s1 + i) != '\0');
+	} while (*(s1 + i) != '\0');
 
 	return (0);
 }
