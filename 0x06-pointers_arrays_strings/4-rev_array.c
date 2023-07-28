@@ -10,15 +10,13 @@
 
 void reverse_array(int *a, int n)
 {
-	long int arr[100];
+	int flip_flop;
 	int i;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n / 2; i++)
 	{
-		arr[i] = a[i];
-	}
-	for (i = 0; i < n; i++)
-	{
-		a[i] = arr[n - i];
+		flip_flop = *(a + i);
+		*(a + i) = *(a + n - i - 1);
+		*(a + n - i - 1) = flip_flop;
 	}
 }
