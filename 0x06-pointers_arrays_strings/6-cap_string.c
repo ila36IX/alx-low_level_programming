@@ -12,7 +12,7 @@ char *cap_string(char *str)
 	int i = 0;
 	int a, b;
 
-	while (*(str + i) != '\0')
+	while (*(str + i))
 	{
 		a = *(str + i);
 		b = a == 9;
@@ -34,7 +34,8 @@ char *cap_string(char *str)
 			{
 				*(str + i) = ' ';
 			}
-			else if (i == 0 && *str >= 97 && *str <= 122)
+
+			if (i == 0 && *str >= 97 && *str <= 122)
 			{
 				*str = (char) (*str - 32);
 			}
