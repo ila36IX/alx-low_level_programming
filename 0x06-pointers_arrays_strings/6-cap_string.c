@@ -14,6 +14,11 @@ char *cap_string(char *str)
 
 	while (*(str + i))
 	{
+
+		if (i == 0 && *str >= 'a' && *str <= 'z')
+		{
+			*str = (char) (*str - 32);
+		}
 		a = *(str + i);
 		b = a == 9;
 		b = b || a == 44;
@@ -35,10 +40,6 @@ char *cap_string(char *str)
 				*(str + i) = ' ';
 			}
 
-			if (i == 0 && *str >= 97 && *str <= 122)
-			{
-				*str = (char) (*str - 32);
-			}
 			a = *(str + i + 1);
 			if (a >= 97 && a <= 122)
 			{
