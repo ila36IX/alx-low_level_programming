@@ -9,9 +9,9 @@
 
 void print_number(int n)
 {
-	unsigned int m = n;
-	unsigned int digits = 0, j;
-	unsigned int divider = 1;
+	int m = n;
+	int digits = 0, j;
+	int divider = 1;
 
 	if (!m)
 	{
