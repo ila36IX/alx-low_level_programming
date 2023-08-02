@@ -6,7 +6,7 @@
  * @haystack: The absulate string
  * @needle: Substring
  *
- * Return:  pointer to the beginning of the located
+ * Return:  Pointer to the beginning of the located
  * substring, or NULL if the substring is not found
  */
 
@@ -15,11 +15,15 @@ char *_strstr(char *haystack, char *needle)
 	int i = 0, j = 0;
 	int needlength = 0;
 
+	if (needle == "")
+	{
+		return (NULL);
+	}
 	while (needle[needlength])
 	{
 		needlength++;
 	}
-	
+
 	while (haystack[i])
 	{
 		j = 0;
