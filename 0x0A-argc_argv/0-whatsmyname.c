@@ -3,8 +3,8 @@
 /**
   * main - Print the program name
   *
-  * @argc - Arguments counter
-  * @argv - Argements vectory
+  * @argc: Arguments counter
+  * @argv: Argements vectory
   * Return: Zero
   */
 int main(int argc, char **argv)
