@@ -1,4 +1,4 @@
-# functionC - Recursion
+# C - Recursion
 
 ![Meme about recursion functions](https://media.makeameme.org/created/to-understand-recursion.jpg)
 
