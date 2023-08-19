@@ -52,8 +52,6 @@ void print_all(const char * const format, ...)
 	va_list arg;
 
 	va_start(arg, format);
-	while (!format)
-		return;
 	while (*(format + i))
 	{
 		print_me(*(format + i), arg, *(format + i + 1));
