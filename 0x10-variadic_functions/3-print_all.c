@@ -19,24 +19,24 @@ void print_me(char c, va_list arg, char checker)
 		comma = "";
 	switch (c)
 	{
-		case 'c':
-			printf("%c%s", va_arg(arg, int), comma);
+	case 'c':
+		printf("%c%s", va_arg(arg, int), comma);
+		break;
+	case 'i':
+		printf("%i%s", va_arg(arg, int), comma);
+		break;
+	case 'f':
+		printf("%f%s", va_arg(arg, double), comma);
+		break;
+	case 's':
+		string = va_arg(arg, char *);
+		if (string)
+		{
+			printf("%s%s", string, comma);
 			break;
-		case 'i':
-			printf("%i%s", va_arg(arg, int), comma);
-			break;
-		case 'f':
-			printf("%f%s", va_arg(arg, double), comma);
-			break;
-		case 's':
-			string = va_arg(arg, char *);
-			if (string)
-			{
-				printf("%s%s", string, comma);
-				break;
-			}
-			printf("(nil)%s", comma);
-			break;
+		}
+		printf("(nil)%s", comma);
+		break;
 	}
 }
 
@@ -50,13 +50,16 @@ void print_all(const char * const format, ...)
 {
 	int i = 0;
 	va_list arg;
-	va_start(arg, format);
 
-	while (*(format + i) && format)
+	va_start(arg, format);
+	while (!format)
+		return;
+	while (*(format + i))
 	{
 		print_me(*(format + i), arg, *(format + i + 1));
 		i++;
 	}
 	va_end(arg);
+
 	printf("\n");
 }
