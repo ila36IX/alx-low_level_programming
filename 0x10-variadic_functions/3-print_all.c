@@ -28,10 +28,11 @@ void print_me(char c, va_list arg, char checker)
 			printf("%f%s", va_arg(arg, double), comma);
 			break;
 		case 's':
-			if (c)
-				printf("%s%s", va_arg(arg, char *), comma);
-			else
-				printf("(nil)%s", comma);
+			char *string = va_arg(arg, char *);
+			if (!string)
+				printf("%s%s", string, comma);
+				break;
+			printf("(nil)%s", comma);
 			break;
 	}
 }
