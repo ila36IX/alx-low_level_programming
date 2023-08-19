@@ -13,6 +13,7 @@
 void print_me(char c, va_list arg, char checker)
 {
 	char *comma = ", ";
+	char *string;
 
 	if (!checker)
 		comma = "";
@@ -28,10 +29,12 @@ void print_me(char c, va_list arg, char checker)
 			printf("%f%s", va_arg(arg, double), comma);
 			break;
 		case 's':
-			char *string = va_arg(arg, char *);
-			if (!string)
+			string = va_arg(arg, char *);
+			if (string)
+			{
 				printf("%s%s", string, comma);
 				break;
+			}
 			printf("(nil)%s", comma);
 			break;
 	}
