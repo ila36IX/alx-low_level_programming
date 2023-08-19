@@ -50,10 +50,9 @@ void print_all(const char * const format, ...)
 {
 	int i = 0;
 	va_list arg;
-
 	va_start(arg, format);
 
-	while (*(format + i))
+	while (*(format + i) && format)
 	{
 		print_me(*(format + i), arg, *(format + i + 1));
 		i++;
