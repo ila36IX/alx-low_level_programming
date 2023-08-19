@@ -10,7 +10,6 @@
  * @checker: checks if there is another string to separate it by comma
  * Return: Nothing.
  */
- 
 void print_me(char c, va_list arg, char checker)
 {
 	char *comma = ", ";
@@ -50,7 +49,7 @@ void print_all(const char * const format, ...)
 
 	va_start(arg, format);
 
-	while(*(format + i))
+	while (*(format + i))
 	{
 		print_me(*(format + i), arg, *(format + i + 1));
 		i++;

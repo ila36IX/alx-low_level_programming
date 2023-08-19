@@ -7,14 +7,14 @@
  *
  * @separator: String to be printed between the strings
  * @n: Number of strng passed to the function
- * @Return: Nothng.
+ * Return: Nothng.
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list strings;
 	int i = n;
 	char *str;
-	
+
 	va_start(strings, n);
 
 	while (i--)
