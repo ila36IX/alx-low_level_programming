@@ -1,5 +1,6 @@
 # Variadic Functions in C
 ![](https://media.tenor.com/VqoQZNqYdkQAAAAC/more-i-want-more.gif)
+
 Variadic functions in C allow you to create functions that can accept a variable number of arguments.
 
 ## Calling Variadic Functions
