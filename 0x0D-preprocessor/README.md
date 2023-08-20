@@ -72,4 +72,4 @@ struct foo {
 
 #endif /* GRANDPARENT_H */
 ```
- *New we can include the the grand_parent.h file to our code without worring about violating the one difinition rule
+ *Now we can include the the grand_parent.h file to our code without worring about violating the one difinition rule
