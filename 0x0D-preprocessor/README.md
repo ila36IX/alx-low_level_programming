@@ -27,10 +27,10 @@ A macro is a snippet (reusable block) of code which has been given a name.
 In other words, it's a string replacer.
 ### Predefined macros
 There are several predefined macros that provide information about the environment, compiler, and code being compiled, for exemple:
-- **__FILE__:** It expands to the name of the current source code file as a string.
-- **__LINE__:** It expands to the current line number within the source code file as an integer.
-- **__DATE__:** This macro expands to a string that represents the date the source code was compiled. The format is typically "Mmm dd yyyy."
-- **__TIME__:** It expands to a string that represents the time the source code was compiled. The format is typically "hh:mm:ss."
+- **__ FILE__:** It expands to the name of the current source code file as a string.
+- **__ LINE__:** It expands to the current line number within the source code file as an integer.
+- **__ DATE__:** This macro expands to a string that represents the date the source code was compiled. The format is typically "Mmm dd yyyy."
+- **__ TIME__:** It expands to a string that represents the time the source code was compiled. The format is typically "hh:mm:ss."
 
 ### Object-like Macros
 An object-like macro is a simple identifier which will be replaced by a code fragment.
