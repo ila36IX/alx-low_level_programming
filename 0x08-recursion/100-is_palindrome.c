@@ -28,7 +28,6 @@ int str_slice(char *s, int i)
 	if (_strlen(s) < i)
 	{
 
-		printf("debugging: %d | strlen :%d", i, _strlen(s));
 		return (1);
 	}
 	else if (*(s) != *(s + (_strlen(s) - i)))
