@@ -3,8 +3,8 @@
 /**
  * main - Prints the number of arguments passed into it
  *
- * @argc - arguments counter
- * @argv - argumnets vectory
+ * @argc: arguments counter
+ * @argv: argumnets vectory
  * Return: Zero
  */
 int main(int argc, char **argv)
