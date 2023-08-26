@@ -13,7 +13,8 @@ char *create_array(unsigned int size, char c)
 	char *matrix;
 
 	matrix = malloc(sizeof(*matrix) * size);
-	if (matrix == NULL)
+
+	if (matrix == NULL || size == 0)
 		return (NULL);
 
 	while (size--)
