@@ -13,6 +13,9 @@ char *create_array(unsigned int size, char c)
 	char *matrix;
 
 	matrix = malloc(sizeof(*matrix) * size);
+	if (matrix == NULL)
+		return (NULL);
+
 	while (size--)
 		matrix[size] = c;
 	return (matrix);

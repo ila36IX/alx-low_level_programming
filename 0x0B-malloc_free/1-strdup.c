@@ -14,13 +14,19 @@ char *_strdup(char *str)
 
 	if (!*str)
 		return (NULL);
+
 	while (*(str + i))
 		i++;
+
 	p = malloc(sizeof(*str) * i);
+
 	if (!p)
 		return (NULL);
+
 	p[i] = '\0';
+
 	while (i--)
 		p[i] = *(str + i);
+
 	return (p);
 }
