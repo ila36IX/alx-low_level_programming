@@ -1,10 +1,10 @@
 #include "lists.h"
-#define STR(X)  ((X) ? (X): ("(nil)"))
+#define STR(X)  ((X) ? (X) : ("(nil)"))
 
 /**
  * print_list - Prints all the elements of a list_t list
  *
- * @t: Linked list of tyoe list_t
+ * @h: Linked list of tyoe list_t
  * Return: Many Nodes
  */
 
@@ -12,10 +12,9 @@ size_t print_list(const list_t *h)
 {
 	list_t *current = NULL;
 	size_t manyNodes = 0;
-	
 
 	current = (list_t *) h;
-	
+
 	while (current)
 	{
 		if (current->str == NULL)
@@ -26,5 +25,6 @@ size_t print_list(const list_t *h)
 		current = current->next;
 		manyNodes++;
 	}
+
 	return (manyNodes);
 }
