@@ -1,5 +1,4 @@
 #include "lists.h"
-#define STR(X)  ((X) ? (X) : ("(nil)"))
 
 /**
  * print_list - Prints all the elements of a list_t list
