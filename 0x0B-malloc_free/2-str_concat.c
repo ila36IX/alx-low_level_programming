@@ -14,7 +14,7 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	
+
 	while (*(str + i))
 		i++;
 
@@ -44,14 +44,15 @@ char *str_concat(char *s1, char *s2)
 	int s1_len = 0;
 	int s2_len = 0;
 
-	if (s1 == NULL)
+
+	if (s1 == NULL && s2 == NULL)
+		return (_strdup(""));
+
+	else if (s1 == NULL)
 		return (_strdup(s2));
 
 	else if (s2 == NULL)
 		return (_strdup(s1));
-
-	else if (s1 == NULL && s2 == NULL)
-		return (_strdup(""));
 
 	while (*(s1 + s1_len))
 		s1_len++;
@@ -59,12 +60,12 @@ char *str_concat(char *s1, char *s2)
 	while (*(s2 + s2_len))
 		s2_len++;
 
-	p = malloc(sizeof(*s1) * (s1_len + s2_len - 1));
+	p = malloc(sizeof(*s1) * (s1_len + s2_len + 1));
 
 	if (p == NULL)
 		return (NULL);
 
-	p[s1_len + s2_len - 1] = '\0';
+	p[s1_len + s2_len + 1] = '\0';
 
 	while (s2_len--)
 		p[s1_len + s2_len] = s2[s2_len];
