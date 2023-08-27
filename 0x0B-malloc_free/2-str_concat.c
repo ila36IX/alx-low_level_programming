@@ -46,8 +46,10 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL)
 		return (_strdup(s2));
+
 	else if (s2 == NULL)
 		return (_strdup(s1));
+
 	else if (s1 == NULL && s2 == NULL)
 		return (_strdup(""));
 
