@@ -18,7 +18,7 @@ char **strtow(char *str)
 	if (*str >= 33 && *str <= 126)
 		j++;
 	for (i = 0; *(str + i); i++)
-		if (*(str + i) == ' ' &&  *(str +i + 1) <= 126 && *(str + i + 1) >= 33)
+		if (*(str + i) == ' ' &&  *(str + i + 1) <= 126 && *(str + i + 1) >= 33)
 			j++;
 	if (str == NULL || j == 0)
 		return (NULL);
@@ -31,7 +31,8 @@ char **strtow(char *str)
 	{
 		if (*(str + i) >= 33 && *(str + i) <= 126)
 		{
-			for (m = i; *(str + m) != '\0' && *(str + m) != ' '; m++);
+			for (m = i; *(str + m) != '\0' && *(str + m) != ' '; m++)
+				;
 			words[j] = malloc(sizeof(char) * (m - i + 1));
 			if (words[j] == NULL)
 				return (NULL);
