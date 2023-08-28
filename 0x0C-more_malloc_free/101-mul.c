@@ -82,7 +82,7 @@ int _strlen(char *s)
 }
 
 /**
- * big_mult - Function that multiplies two big numbers
+ * multiplication - Function that multiplies two big numbers
  * @s1: String big number 1
  * @s2: String big number 2
  * Return: a result of the two big numbers
