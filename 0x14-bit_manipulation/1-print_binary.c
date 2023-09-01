@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * void print_binary - Prints the binary representation of a number
+ * print_binary - Prints the binary representation of a number
  *
  * @n: integer of base-10
  * Return: Nothing.
