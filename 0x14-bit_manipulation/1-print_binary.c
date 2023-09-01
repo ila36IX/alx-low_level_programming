@@ -8,7 +8,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	if (n / 2 == 0)
+	if (n & 1 == 0)
 	{
 		_putchar((n & 1) + '0');
 	}
