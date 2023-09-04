@@ -8,7 +8,7 @@ Common Bitwise Operators:
 Symbol | Operation
 ---|---
 `&` | Bitwise AND
-`|` | Bitwise Inclusive-OR
+`\|` | Bitwise Inclusive-OR
 `^` | Bitwise Exclusive-OR
 `~` | Ones complement
 `<<` | Left shift
@@ -16,9 +16,9 @@ Symbol | Operation
 
 ## Table of truth
 
-`A` | `B` | `A | b` |`A & b` | `A ^ b` | `~A` 
---- | --- | ---     | ---    | ---     | --- 
-0   | 0   | 0       | 0      | 0       | 1 
+`A` | `B` | `A \| b` |`A & b` | `A ^ b` | `~A` 
+:---: | :---: | :---:   | :---:    | :---:     | :---: 
+0   | 0   | 0  | 0      | 0       | 1 
 0 | 1 | 1 | 0 | 1 | 1 
 1 | 0 | 1 | 0 | 1 | 0 
 1 | 1 | 1 | 1 | 0 | 0 
