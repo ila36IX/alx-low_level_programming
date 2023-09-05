@@ -14,7 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int fd;
 	char *buff;
 	size_t size;
-	int return_value;
+	int _return_value;
 
 	fd = open(filename, O_RDONLY);
 
@@ -27,10 +27,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	size = read(fd, buff, letters);
 	buff[size] = '\0';
-	
+
 	close(fd);
-	return_value = write(STDOUT_FILENO, buff, size);
+	_return_value = write(STDOUT_FILENO, buff, size);
 	free(buff);
-	return (return_value);
+	return (_return_value);
 
 }
