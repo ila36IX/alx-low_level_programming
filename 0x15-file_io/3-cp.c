@@ -3,6 +3,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+/**
+ * main - The entry function
+ *
+ * @ac: Arguments counter
+ * @av: Arguments vector
+ * Return: 0 if it success
+ */
 int main(int ac, char **av)
 {
 	int fd_from, fd_to, closed_state_to, closed_state_from;
@@ -34,13 +41,13 @@ int main(int ac, char **av)
 	closed_state_from = close(fd_from), closed_state_to = close(fd_to);
 	if (closed_state_to == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n",
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
 				closed_state_to);
 		exit(100);
 	}
 	if (closed_state_from == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n",
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
 				closed_state_from);
 		exit(100);
 	}
