@@ -11,7 +11,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -19,12 +19,12 @@ int main(int ac, char **av)
 	fd_to = open(av[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 
@@ -34,13 +34,13 @@ int main(int ac, char **av)
 	closed_state_from = close(fd_from), closed_state_to = close(fd_to);
 	if (closed_state_to == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d",
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n",
 				closed_state_to);
 		exit(100);
 	}
 	if (closed_state_from == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d",
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n",
 				closed_state_from);
 		exit(100);
 	}
