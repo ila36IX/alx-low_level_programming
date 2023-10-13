@@ -1,7 +1,5 @@
 #include "lists.h"
 
-#include "lists.h"
-
 /**
  * get_dnodeint_at_index - nth node of a dlistint_t linked list
  *
