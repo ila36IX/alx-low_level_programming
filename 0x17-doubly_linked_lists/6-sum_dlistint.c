@@ -13,8 +13,8 @@ int sum_dlistint(dlistint_t *head)
 
 	if (head == NULL)
 	return (0);
-	
-	while(current != NULL)
+
+	while (current != NULL)
 	{
 		int_sum += current->n;
 		current = current->next;
