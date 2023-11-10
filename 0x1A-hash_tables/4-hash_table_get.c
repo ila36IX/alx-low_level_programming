@@ -10,19 +10,19 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-        hash_node_t *walk;
-        unsigned long int index;
+	hash_node_t *walk;
+	unsigned long int index;
 
-        if (!ht || !key)
-                return (NULL);
+	if (!ht || !key)
+		return (NULL);
 
-        index = key_index((const unsigned char *) key, ht->size);
-        walk = ht->array[index];
-        while (walk)
-        {
-                if (!strcmp(walk->key, key))
-                        return (walk->value);
-                walk = walk->next;            
-        }
-        return (NULL);
+	index = key_index((const unsigned char *) key, ht->size);
+	walk = ht->array[index];
+	while (walk)
+	{
+		if (!strcmp(walk->key, key))
+			return (walk->value);
+		walk = walk->next;
+	}
+	return (NULL);
 }

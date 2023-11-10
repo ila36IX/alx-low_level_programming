@@ -9,12 +9,12 @@
  * be stored in the array of the hash table
  */
 unsigned long int key_index(const unsigned char *key,
-unsigned long int size)
+			    unsigned long int size)
 {
-        unsigned long int index;
+	unsigned long int index;
 
-        if (!key || !size)
-                return (0);
-        index = hash_djb2(key);
-        return (index % size);
+	if (!key || !size)
+		return (0);
+	index = hash_djb2(key);
+	return (index % size);
 }

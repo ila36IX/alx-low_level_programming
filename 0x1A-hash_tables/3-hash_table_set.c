@@ -8,52 +8,57 @@
  * @value: The new value
  * Return: 1 if it is unique or 0 if it's already exist
  */
-hash_node_t *update_key(hash_node_t *element, const char *key, const char *value)
+hash_node_t *update_key(hash_node_t *element, const char *key,
+			const char *value)
 {
-        hash_node_t *walk;
-        if (!element) 
-                return (NULL);
+	hash_node_t *walk;
 
-        walk = element;
+	if (!element)
+		return (NULL);
 
-        while (walk)
-        {
-                if (!strcmp(walk->key, key))
-                {
-                        if (walk->value)
-                                free(walk->value);
-                        walk->value = strdup(value);
-                        return (walk);
-                }
-                walk = walk->next;
-        }
-        return (NULL);
+	walk = element;
+
+	while (walk)
+	{
+		if (!strcmp(walk->key, key))
+		{
+			if (walk->value)
+				free(walk->value);
+			walk->value = strdup(value);
+			return (walk);
+		}
+		walk = walk->next;
+	}
+	return (NULL);
 }
 
 /**
  * insert_in_head - inser new node to the head of LL
  * LL is the linked list in tha array of hash table
  * @head: Pointer to the head
- *
+ * @key: The key for the new element
+ * @value: The value associated with the key
  * Return: new_head
  */
 hash_node_t *insert_in_head(hash_node_t **head,
-const char *key, const char *value)
+			    const char *key, const char *value)
 {
-        hash_node_t *new_root = NULL;
-        
-        if (!head || !key || !strcmp(key, ""))
-                return (NULL);
-        
-        if ((new_root = update_key(*head, key, value)))
-                return (new_root);
+	hash_node_t *new_root = NULL;
 
-        new_root = malloc(sizeof(hash_node_t));
-        new_root->key = strdup(key);
-        new_root->value = strdup(value);
-        new_root->next = *head;
-        (*head) = new_root;
-        return (new_root);
+	if (!head || !key || !strcmp(key, ""))
+		return (NULL);
+
+	new_root = update_key(*head, key, value);
+
+	if (new_root)
+		return (new_root);
+
+	new_root = malloc(sizeof(hash_node_t));
+	new_root->key = strdup(key);
+	new_root->value = strdup(value);
+	new_root->next = *head;
+	(*head) = new_root;
+	return (new_root);
 }
 
 /**
@@ -67,16 +72,16 @@ const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-        unsigned long int index;
-        hash_node_t **root;
-        
-        if (!ht || !key)
-                return (0);
+	unsigned long int index;
+	hash_node_t **root;
 
-        index = key_index((const unsigned char *) key, ht->size);
-        root = &(ht->array[index]);
-        insert_in_head(root, key, value);
+	if (!ht || !key)
+		return (0);
 
-        return (1);
+	index = key_index((const unsigned char *) key, ht->size);
+	root = &(ht->array[index]);
+	insert_in_head(root, key, value);
+
+	return (1);
 }
 
