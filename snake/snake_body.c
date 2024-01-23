@@ -30,9 +30,8 @@ snake_body *grow_snake(snake_body **head)
 			while (current->next != NULL)
 				current = current->next;
 
-			segment->x = current->piece->x + 50; 
-			segment->y = current->piece->y + 10; 
-			printf("making me taller ...\n");
+			segment->x = current->piece->x - WEIGHT; 
+			segment->y = current->piece->y; 
 
 			current->next = new_tail;
 		}
@@ -61,9 +60,9 @@ snake_body *grow_snake(snake_body **head)
  *
  * @head: Head of the snake
  */
-void free_snake_body(snake_body *head)
+void free_snake_body(snake_body *h)
 {
-	snake_body *current = head;
+	snake_body *current = h;
 	snake_body *tmp = NULL;
 
 	while (current !=  NULL)

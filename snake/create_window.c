@@ -3,8 +3,9 @@
 /**
  * init_window - Create the window and its serface
  *
+ * Return: true if everything is done properly, and fasle in failure
  */
-void init_window(void)
+bool init_window(void)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		print_err("SDL could not initialize!");
@@ -17,11 +18,18 @@ void init_window(void)
 		SDL_WINDOW_SHOWN);
 
 	if (!window)
+	{
 		print_err("Window could not be created!");
+		return	(false);
+	}
 
 	screen = SDL_CreateRenderer(window, -1, 0);
 	if (!screen)
+	{
 		print_err("Renderer could not be created");
+		return (false);
+	}
+	return (true);
 }
 
 /**

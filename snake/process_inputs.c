@@ -17,30 +17,47 @@ void process_input(bool *running)
 
 		if (e.type == SDL_KEYDOWN)
 		{
-			if (strcmp(pressed_key(e), "Escape") == 0)
+			if (e.key.keysym.sym == SDLK_ESCAPE)
 				(*running) = false;
-			if (e.key.keysym.sym == SDLK_UP)
-				set_snake_heading("up");
-			if (e.key.keysym.sym == SDLK_DOWN)
-				set_snake_heading("down");
-			if (e.key.keysym.sym == SDLK_LEFT)
-				set_snake_heading("left");
-			if (e.key.keysym.sym == SDLK_RIGHT)
-				set_snake_heading("right");
+			hondle_pressed_key(e);
 		}
 	}
-
 
 }
 
 /**
- * pressed_key - Get pressed key
+ * hondle_pressed_key - hondle the events of keyboard inputs
  *
- * @e: is the SDL event that changed while app is running
- * return: String representation of pressed key
+ * @e: Struct consistes of the pressed key details
  */
-const char *pressed_key(SDL_Event e)
+void hondle_pressed_key(SDL_Event e)
 {
-	const char *key = SDL_GetKeyName(e.key.keysym.sym);
-	return (key);
+	if (e.key.keysym.sym == SDLK_UP)
+	{
+		if (!its_heading("down"))
+			set_snake_heading("up");
+	}
+	if (e.key.keysym.sym == SDLK_DOWN)
+	{
+		if (!its_heading("up"))
+			set_snake_heading("down");
+	}
+	if (e.key.keysym.sym == SDLK_LEFT)
+	{
+		if (!its_heading("right"))
+			set_snake_heading("left");
+	}
+	if (e.key.keysym.sym == SDLK_RIGHT)
+	{
+		if (!its_heading("left"))
+			set_snake_heading("right");
+	}
+	if (e.key.keysym.sym == SDLK_r)
+		restart();
+	if (e.key.keysym.sym == SDLK_a)
+	{
+		throw_food();
+		printf("%s\n",get_snake_heading());
+	}
+
 }

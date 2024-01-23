@@ -12,3 +12,9 @@ void print_err(char *error_msg)
 	fprintf(stderr, "%s\n", error_msg);
 	fprintf(stderr, "\t-> %s\n", SDL_GetError());
 }
+
+void restart()
+{
+	head->piece->x = SCREEN_WIDTH / 2;
+	head->piece->y = SCREEN_HEIGHT / 2;
+}

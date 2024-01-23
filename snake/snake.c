@@ -6,14 +6,7 @@
  */
 int main()
 {
-	bool running = true;
-	init_window();
-	head = grow_snake(NULL);
-	grow_snake(&head);
-	grow_snake(&head);
-	grow_snake(&head);
-	grow_snake(&head);
-
+	bool running = setup();
 	
 	while (running)
 	{ 
@@ -21,5 +14,7 @@ int main()
 		render();
 	}
 	destroy_window();
+	free_snake_body(head);
+	free(egg);
 	return (0);
 }
