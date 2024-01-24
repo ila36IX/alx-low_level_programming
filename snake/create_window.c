@@ -39,5 +39,6 @@ void destroy_window(void)
 {
 	SDL_DestroyRenderer(screen);
 	SDL_DestroyWindow(window);
+	TTF_Quit();
 	SDL_Quit();
 }

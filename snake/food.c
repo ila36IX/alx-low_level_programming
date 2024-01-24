@@ -1,6 +1,9 @@
 #include "snake.h"
-
-void throw_food()
+/**
+ * throw_food - init food if not exist,
+ * and give it a random position in the screen
+ */
+void throw_food(void)
 {
 	if (egg == NULL)
 		egg = malloc(sizeof(SDL_Rect));
@@ -8,13 +11,15 @@ void throw_food()
 	egg->x = random() % (SCREEN_WIDTH - egg_weight);
 	egg->y = random() % (SCREEN_HEIGHT - egg_weight);
 
-	printf("(%i, %i)\n", egg->x, egg->y);
-
 	egg->w = egg->h = egg_weight;
-
 }
 
-void throw_food_if_eaten()
+/**
+ * throw_food_if_eaten - detect if food has been eaten
+ * by the snake (snake head is collide with food segment)
+ * and change its position
+ */
+void throw_food_if_eaten(void)
 {
 	int x = head->piece->x;
 	int y = head->piece->y;

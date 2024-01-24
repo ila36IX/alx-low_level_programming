@@ -5,7 +5,7 @@
  */
 void wait(void)
 {
-	int delay = FRAME_RATE - (SDL_GetTicks() - last_frame_time); 
+	int delay = FRAME_RATE - (SDL_GetTicks() - last_frame_time);
 
 	if (delay > 0 && delay <= FRAME_RATE)
 		SDL_Delay(delay * 1.2);
@@ -13,81 +13,57 @@ void wait(void)
 	last_frame_time = SDL_GetTicks();
 }
 
-
-
 /**
- * _move - Meka square object move an amount of pixels par second
+ * display_text - display text to the screen and wait 2s
  *
- * @square: The object that will be move
- * @dest: Destance that the Object will move
- * Return: The object in the updated position
+ * @message: String that will be rendered to the screen
  */
-void _move(SDL_Rect *obj, float dest)
+void display_text(char *message)
 {
-	obj->x += dest * snake_heading.x;
-	obj->y += dest * snake_heading.y;
-	if (obj->x > SCREEN_WIDTH)
-		obj->x = 0;
-	if (obj->x < 0)
-		obj->x = SCREEN_WIDTH;
-	if (obj->y > SCREEN_HEIGHT)
-		obj->y = 0;
-	if (obj->y < 0)
-		obj->y = SCREEN_HEIGHT;
-	// TODO: You have to emplement this!
-}
+	char *path = "/usr/share/vlc/skins2/fonts/FreeSans.ttf";
+	TTF_Font *Sans = TTF_OpenFont(path, 70);
+	SDL_Color black = {0, 0, 0, 255};
+	SDL_Surface *surfaceMessage =
+		TTF_RenderText_Solid(Sans, message, black);
 
+	SDL_Texture *Message = SDL_CreateTextureFromSurface(screen, surfaceMessage);
+	SDL_Rect Message_rect;
 
-/**
- * move - Make the snake move freely
- * @h: Pointer to the snake h[ead]
- */
-void move(snake_body *h)
-{
-	int prev_x = h->piece->x;
-	int prev_y = h->piece->y;
-	int _prev_x;
-	int _prev_y;
-
-	_move(h->piece, WEIGHT);
-	h = h->next;
-
-	while (h)
+	Message_rect.w = 190;
+	Message_rect.h = 90;
+	Message_rect.x = SCREEN_WIDTH / 2 - Message_rect.w / 2;
+	Message_rect.y = SCREEN_HEIGHT / 2 - Message_rect.h / 2;
+	SDL_RenderCopy(screen, Message, NULL, &Message_rect);
+	SDL_RenderPresent(screen);
+	SDL_FreeSurface(surfaceMessage);
+	SDL_DestroyTexture(Message);
+	TTF_CloseFont(Sans);
+	if ((SDL_GetTicks() - begine_message_time) > 1000)
 	{
-		_prev_x = h->piece->x;
-		_prev_y = h->piece->y;
-
-		h->piece->x = prev_x;
-		h->piece->y = prev_y;
-
-		prev_x = _prev_x;
-		prev_y = _prev_y;
-		h = h->next;
+		playing = true;
+		restart();
 	}
 }
 
-/*
+/**
  * render - Render objects to the screen
  */
 void render(void)
 {
-	snake_body *curr = head;
-	int i = 0;
 	wait();
 	SDL_SetRenderDrawColor(screen, 0xFF, 0xFF, 0xFF, 0x00);
 	SDL_RenderClear(screen);
-	
-	move(head);
-
-	throw_food_if_eaten();
-
-	while (curr)
+	if (playing)
 	{
-		SDL_RenderFillRect(screen, curr->piece);
-		SDL_SetRenderDrawColor(screen, 0x00, 0x00, 0x00, 0x00);
-		curr = curr->next;
-		i++;
+		move(head);
+		throw_food_if_eaten();
+		SDL_RenderFillRect(screen, egg);
 	}
-	SDL_RenderFillRect(screen, egg);
+	else
+	{
+
+		display_text("You missed!");
+	}
+
 	SDL_RenderPresent(screen);
 }

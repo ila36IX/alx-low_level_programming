@@ -4,12 +4,13 @@
  * main - the opening function
  * Return: 0 in seccess
  */
-int main()
+int main(void)
 {
+	TTF_Init();
 	bool running = setup();
-	
+
 	while (running)
-	{ 
+	{
 		process_input(&running);
 		render();
 	}

@@ -11,25 +11,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include <SDL2/SDL_ttf.h>
 
-#define FPS 30
-#define FRAME_RATE 1000 / FPS
+#define FPS 40
+#define FRAME_RATE (1000 / FPS)
 #define WEIGHT 5
 
 /**
- * direx - define the direction movement of the snake
+ * struct direx - define the direction movement of the snake
  *
  * @x: Direction movment in the horizontal axis 1 or 0 or -1
  * @y: Direction movment in the vertical axis 1 or 0 or -1
  */
-typedef struct direx 
+typedef struct direx
 {
-	short x;
-	short y;
+short x;
+short y;
 } direx;
 
 /**
- * snake_body - Node of linked list represnting segment of the
+ * struct snake_body_s - Node of linked list represnting segment of the
  * snake body
  *
  * @piece: Segment
@@ -38,9 +39,9 @@ typedef struct direx
  */
 typedef struct snake_body_s
 {
-    SDL_Rect *piece;
-    struct snake_body_s *prev;
-    struct snake_body_s *next;
+SDL_Rect *piece;
+struct snake_body_s *prev;
+struct snake_body_s *next;
 } snake_body;
 
 extern int SCREEN_WIDTH;
@@ -52,6 +53,8 @@ extern direx snake_heading;
 extern snake_body *head;
 extern SDL_Rect *egg;
 extern int egg_weight;
+extern bool playing;
+extern int begine_message_time;
 
 /* Functions prototypes */
 bool init_window(void);
@@ -65,12 +68,15 @@ void free_snake_body(snake_body *head);
 void move(snake_body *head);
 void move(snake_body *head);
 void _move(SDL_Rect *, float);
-void restart();
-void throw_food();
-void throw_food_if_eaten();
-bool setup();
-char * get_snake_heading(void);
+void restart(void);
+void throw_food(void);
+void throw_food_if_eaten(void);
+bool setup(void);
+char *get_snake_heading(void);
 bool its_heading(char *dirc);
 void hondle_pressed_key(SDL_Event e);
+void wait(void);
+void new_snake(int length);
+bool collision(snake_body *h);
 
 #endif /*__game__*/

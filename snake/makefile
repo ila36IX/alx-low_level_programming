@@ -5,7 +5,7 @@ build: run
 	./run
 
 run: $(c_files) $(header_file)
-	gcc  -Wall -Werror -Wextra -pedantic  *.c -lSDL2 -o run
+	gcc  -Wall -Werror -Wextra -pedantic  *.c -lSDL2 -lSDL2_ttf -o run
 
 leaks: run 
 	valgrind --leak-check=full --show-leak-kinds=definite,possible ./run
