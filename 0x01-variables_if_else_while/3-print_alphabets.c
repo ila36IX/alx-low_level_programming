@@ -1,6 +1,9 @@
 #include <stdio.h>
-
-int main (void)
+/**
+ *  * main - print all possible combinations of three digits
+ *      * Return: O if succeed
+ *	 **/
+int main(void)
 {
 	char a = 97;
 	char A = 'A';
