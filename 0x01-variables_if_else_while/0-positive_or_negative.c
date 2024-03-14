@@ -1,36 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 /**
- * main - the neter point of the code
- *
- * Return: 0 if success
- **/
+ *  * main - print all possible combinations of three digits
+ *   *
+ *      * Return: O if succeed
+ *       **/
+/* more headers goes there */
+
+/* betty style doc for function main goes there */
 int main(void)
 {
 	int n;
-	int last_Digit;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
-	last_Digit = n % 10;
-	printf("Last digit of %d is ", n);
-
-	if (last_Digit >= 5)
+	if (n > 0)
 	{
-		printf("%d and is greater than 5\n", last_Digit);
+		printf("%d is positive\n", n);
 	}
-	else if (last_Digit == 0)
+	else if (n == 0)
 	{
-		printf("%d and is 0\n", last_Digit);
+		printf("%d is zero\n", n);
 	}
-	else if (last_Digit <= 6)
+	else if (n < 0)
 	{
-		printf("%d and is less than 6 and not 0\n", last_Digit);
+		printf("%d is negative\n", n);
 	}
-
 	return (0);
-
 }
