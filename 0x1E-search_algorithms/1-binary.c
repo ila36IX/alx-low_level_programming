@@ -1,5 +1,13 @@
 #include "search_algos.h"
 
+/**
+ * searching_in_array - prints the current searching array items
+ *
+ * @array: Sorted array
+ * @l: starting position
+ * @r: Ending position
+ * Return: Nothing
+ */
 void searching_in_array(int *array, int l, int r)
 {
 	int i;
