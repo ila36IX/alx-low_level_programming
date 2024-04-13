@@ -52,16 +52,12 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		return (NULL);
 
 	block_size = sqrt(size);
-	while (*value_by_index(list, r) < value)
+	while (*value_by_index(list, r) < value && r < size - 1)
 	{
+		l = r, r = min(r + block_size, size - 1);
 		printf("Value checked array[%ld] = [%d]\n", r, *value_by_index(list, r));
-		l = r, r += block_size;
-		if (r >= size)
-		{
-			r = size - 1;
-			break;
-		}
 	}
+
 
 	printf("Value found between indexes [%ld] and [%ld]\n", l, r);
 	for (i = l; i <= r && i < size; i++)
