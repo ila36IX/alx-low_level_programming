@@ -22,7 +22,6 @@ int recursion_binary(int *array, size_t size, size_t low, size_t high, int value
 		return (m);
 }
 
-/**/
 int advanced_binary(int *array, size_t size, int value)
 {
 	if (!array)
@@ -30,4 +29,3 @@ int advanced_binary(int *array, size_t size, int value)
 
 	return recursion_binary(array, size, 0, size - 1, value);
 }
-
