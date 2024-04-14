@@ -9,22 +9,13 @@
  */
 int main(void)
 {
-	listint_t *list, *res;
 	int array[] = {
-		0, 1, 2, 3, 4, 7, 12, 15, 18, 19, 23, 53, 61, 62, 76, 99
+		0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 	};
 	size_t size = sizeof(array) / sizeof(array[0]);
 
-	list = create_list(array, size);
-	print_list(list);
-
-	res =  jump_list(list, size, 53);
-	printf("Found %d at index: %lu\n\n", 53, res->index);
-	res =  jump_list(list, size, 0);
-	printf("Found %d at index: %lu\n\n", 0, res->index);
-	res =  jump_list(list, size, 999);
-	printf("Found %d at index: %p\n", 999, (void *) res);
-
-	free_list(list);
+	printf("Found %d at index: %d\n\n", 6, jump_search(array, size, 6));
+	printf("Found %d at index: %d\n\n", 1, jump_search(array, size, 1));
+	printf("Found %d at index: %d\n", 999, jump_search(array, size, 999));
 	return (EXIT_SUCCESS);
 }

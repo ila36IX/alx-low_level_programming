@@ -5,7 +5,7 @@ build: run
 	./run
 
 run: $(c_files) $(header_file)
-	gcc -Wall -Werror -Wextra -pedantic *.c -o run -lm
+	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o run -lm
 
 test: run_with_igonring_wornings
 	./run_with_igonring_wornings
