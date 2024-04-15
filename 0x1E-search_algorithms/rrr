@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc -Wall -Wextra -Werror -pedantic -std=gnu89 main.c 106-linear_skip.c skiplist/*.c -lm -o 106-linear && ./106-linear
