@@ -16,6 +16,6 @@ int main(void)
 	int array[15] = {
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 23, 47, 89, 160
 	};
-	printf("Found at index: %d\n", jump_search(array, 15, 123456789));
+	printf("Found at index: %d\n", jump_search(array, 15, 11));
 	return (0);
 }
