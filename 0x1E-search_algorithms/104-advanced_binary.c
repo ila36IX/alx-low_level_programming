@@ -1,6 +1,25 @@
 #include "search_algos.h"
 
 /**
+ * __searching_in_array - prints the current searching array items
+ *
+ * @array: Sorted array
+ * @l: starting position
+ * @r: Ending position
+ * Return: Nothing
+ */
+void __searching_in_array(int *array, int l, int r)
+{
+	int i;
+
+	printf("Searching in array: ");
+	for (i = l; i <= r; i++)
+	{
+		printf("%d%s", array[i], i == r ? "\n" : ", ");
+	}
+}
+
+/**
  * recursion_binary - Implementing binary search using recursion
  *
  * @array: A sorted array
@@ -18,7 +37,7 @@ int recursion_binary(int *array, size_t low,
 	if (low > high)
 		return (-1);
 
-	searching_in_array(array, low, high);
+	__searching_in_array(array, low, high);
 	if (array[low] == value)
 		return (low);
 
