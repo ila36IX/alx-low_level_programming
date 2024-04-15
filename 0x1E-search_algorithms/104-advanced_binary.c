@@ -29,8 +29,7 @@ void __searching_in_array(int *array, int l, int r)
  * Return: Index which the value is located in the array
  * Or -1 if array if NULL or value not exists
  */
-int recursion_binary(int *array, size_t low,
-		     size_t high, int value)
+int recursion_binary(int *array, size_t low, size_t high, int value)
 {
 	size_t m = (low + high) / 2;
 
@@ -46,7 +45,7 @@ int recursion_binary(int *array, size_t low,
 	else if (array[m] > value)
 		return (recursion_binary(array, low, m - 1, value));
 	else if (array[m - 1] == value)
-		return (recursion_binary(array, low, m , value));
+		return (recursion_binary(array, low, m, value));
 	else
 		return (m);
 }
