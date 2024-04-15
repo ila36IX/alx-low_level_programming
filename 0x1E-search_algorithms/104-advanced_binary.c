@@ -5,11 +5,14 @@
  *
  * @array: A sorted array
  * @size: The size of the array
+ * @low: first index current search will start from
+ * @high: last index current search will end by
  * @value: The value to search for
  * Return: Index which the value is located in the array
  * Or -1 if array if NULL or value not exists
  */
-int recursion_binary(int *array, size_t size, size_t low, size_t high, int value)
+int recursion_binary(int *array, size_t size, size_t low,
+		     size_t high, int value)
 {
 	size_t m = (low + high) / 2;
 
@@ -17,16 +20,16 @@ int recursion_binary(int *array, size_t size, size_t low, size_t high, int value
 		return (-1);
 
 	if (array[low] == value)
-		return low;
+		return (low);
 
 	searching_in_array(array, low, high);
 
 	if (array[m] < value)
-		return recursion_binary(array, size, m + 1, high, value);
+		return (recursion_binary(array, size, m + 1, high, value));
 	else if (array[m] > value)
-		return recursion_binary(array, size, low, m - 1, value);
+		return (recursion_binary(array, size, low, m - 1, value));
 	else if (array[m - 1] == value)
-		return recursion_binary(array, size, low, m + 1, value);
+		return (recursion_binary(array, size, low, m + 1, value));
 	else
 		return (m);
 }
@@ -45,7 +48,7 @@ int advanced_binary(int *array, size_t size, int value)
 	if (!array)
 		return (-1);
 
-	return recursion_binary(array, size, 0, size - 1, value);
+	return (recursion_binary(array, size, 0, size - 1, value));
 }
 
 /**
