@@ -11,7 +11,7 @@
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *e, *pe, *max;
+	skiplist_t *e, *pe;
 
 	if (!list)
 		return (NULL);
