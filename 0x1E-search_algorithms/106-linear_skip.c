@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * linear_skip - Searches for a value in a sorted skip list 
+ * linear_skip - Searches for a value in a sorted skip list
  * of integers using “express lane” to browse it
  *
  * @list: Pointer to the head of linked list
