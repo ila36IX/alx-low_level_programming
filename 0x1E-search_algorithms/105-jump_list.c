@@ -67,16 +67,15 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	while (*value_by_index(list, r) < value && r < size - 1)
 	{
 		l = r, r = _min(r + block_size, size - 1);
-		printf("Value checked array[%ld] = [%d]\n", r, *value_by_index(list, r));
+		printf("Value checked at array[%ld] = [%d]\n", r, *value_by_index(list, r));
 	}
 
 	printf("Value found between indexes [%ld] and [%ld]\n", l, r);
 	for (i = l; i <= r && i < size; i++)
 	{
-		printf("Value checked array[%ld] = [%d]\n", i, *value_by_index(list, i));
+		printf("Value checked at array[%ld] = [%d]\n", i, *value_by_index(list, i));
 		if (*value_by_index(list, i) == value)
 			return (pointer_by_index(list, i));
 	}
 	return (NULL);
 }
-
