@@ -13,9 +13,9 @@ void free_skiplist(skiplist_t *list);
  */
 int main(void)
 {
-	int array[17] = {
-		3, 4, 5, 7, 7, 7, 8, 9, 10, 11, 21, 31, 33, 33, 33, 44, 51
+	int array[15] = {
+		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 23, 47, 89, 160
 	};
-	printf("Found at index: %d\n", advanced_binary(array, 17, 31));
+	printf("Found at index: %d\n", jump_search(array, 15, 123456789));
 	return (0);
 }
