@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+#include <string.h>
 
 /**
  * shash_table_create - Init new hashtable
@@ -106,6 +107,33 @@ void insert_node_sort(HASH_TABLE *ht, const char *key, NODE *node)
 }
 
 /**
+ * update_key_ifexist - update value of a key if that key already exists
+ *
+ * @head: head of the linked list inside the hash table
+ * @key: string that will be the key
+ * @value: corresponding value of key
+ *
+ * Return: return 1 if the key is exist after updating its new value or 0
+ * if key doesn't exist
+ */
+int update_key_ifexist(NODE *head, const char *key, const char *value)
+{
+	NODE *walk = head;
+
+	while (walk)
+	{
+		if (strcmp(walk->key, key) == 0)
+		{
+			free(walk->value);
+			walk->value = strdup(value);
+			return (1);
+		}
+		walk = walk->next;
+	}
+	return (0);
+}
+
+/**
  * shash_table_set - create new key-value node and insert it in the sorted
  * linked list
  *
@@ -128,6 +156,8 @@ int shash_table_set(HASH_TABLE *ht, const char *key, const char *value)
 	}
 	index = key_index((const unsigned char *) key, ht->size);
 	list_nodes = &(ht->array)[index];
+	if (update_key_ifexist(*list_nodes, key, value))
+		return (1);
 	added_node = add_node_end(list_nodes, key, value);
 	insert_node_sort(ht, key, added_node);
 	return (1);
