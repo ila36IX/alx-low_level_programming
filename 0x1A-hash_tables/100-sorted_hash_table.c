@@ -173,6 +173,8 @@ void shash_table_print(HASH_TABLE *ht)
 {
 	NODE *walk;
 
+	if (!ht)
+		return;
 	walk = ht->shead;
 	printf("{");
 	while (walk)
@@ -196,6 +198,8 @@ void shash_table_print_rev(HASH_TABLE *ht)
 {
 	NODE *walk;
 
+	if (!ht)
+		return;
 	walk = ht->stail;
 	printf("{");
 	while (walk)
